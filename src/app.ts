@@ -18,7 +18,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   "https://qod-commit-quiz-frontend.vercel.app",
 ];
-app.options("*", cors());
+// app.options("*", cors());
 
 app.use(
   cors({
