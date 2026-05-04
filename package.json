@@ -2,7 +2,7 @@
   "name": "ts-node-express",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "accepts": "^2.0.0",
     "acorn": "^8.16.0",
@@ -193,6 +193,8 @@
     "yocto-queue": "^0.1.0"
   },
   "scripts": {
+    "build": "npx tsc",
+    "start": "node ./dist/server.js",
     "dev": "tsx watch src/server.ts",
     "seed": "tsx src/seed/seedQuestions.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
