@@ -16,7 +16,7 @@ app.use(morgan("dev"));
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "qod-commit-quiz-frontend.vercel.app",
+  "https://qod-commit-quiz-frontend.vercel.app",
 ];
 
 app.use(
