@@ -14,9 +14,20 @@ app.use(express.urlencoded({ extended: false }));
 dotenv.config();
 app.use(morgan("dev"));
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://qod-commit-quiz-frontend.vercel.app",
+];
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   }),
 );
