@@ -1,0 +1,12 @@
+# Node.js build, logs, and dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env*
+.node_repl_history
+.npm
+coverage/
+dist/
+.next/
+.DS_Store
