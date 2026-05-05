@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 dotenv.config();
 app.use(morgan("dev"));
 
-const allowedOrigins = [
+export const allowedOrigins = [
   "http://localhost:5173",
   "https://qod-commit-quiz-frontend.vercel.app",
 ];

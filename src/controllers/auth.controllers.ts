@@ -5,6 +5,7 @@ import { sendMail } from "../utils/sendmail.js";
 import type { Request, Response } from "express";
 import config from "../config/config.js";
 import User from "../models/User.js";
+import { allowedOrigins } from "../app.js";
 
 const JWT_SECRET = config.auth.jwt_secret;
 
@@ -164,7 +165,7 @@ export const forgotPassword = async (req: Request, res: Response) => {
     await user.save();
 
     // 🔗 reset link
-    const resetLink = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
+    const resetLink = `allowedOrigins/reset-password/${resetToken}`;
 
     // 📧 EMAIL TEMPLATE
     const html = `
@@ -203,7 +204,10 @@ export const forgotPassword = async (req: Request, res: Response) => {
 
     return res.status(500).json({
       message: "Server error",
-      error: process.env.NODE_ENV === "development" ? error.message : undefined,
+      error:
+        process.env.NODE_ENV === "development" || "production"
+          ? error.message
+          : undefined,
     });
   }
 };
